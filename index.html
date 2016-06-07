@@ -8,8 +8,13 @@
     <script type="text/javascript" src="controllers.js"></script>
   </head>
   <body>
-    <div ng-controller="ToDoController as controller">
-      {{ controller.todo }}
+    <div ng-controller="ToDoController as ctrl">
+      <p ng-repeat="todo in ctrl.todos">
+        {{ todo.text }}: {{ todo.completed ? "completed" : "not completed" }}
+      </p>
+      <input type="text" ng-model="todoText">
+      <button ng-click="ctrl.addToDo(todoText);">Add a Todo</button>
+      <button ng-click="ctrl.removeToDo();">Remove last Todo</button>
     </div>
   </body>
 </html>
